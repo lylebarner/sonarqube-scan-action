@@ -15,12 +15,12 @@ async function installMacOSPackages() {
  * These RUNNER_XX env variables come from GitHub by default.
  * See https://docs.github.com/en/actions/reference/workflows-and-actions/variables#default-environment-variables
  *
- * If SONAR_HOST_URL is omitted, we assume sonarcloud.io
+ * If SONAR_HOST_URL is omitted, we assume internal server
  */
 function getEnvVariables() {
   const sonarHostUrl = process.env.SONAR_HOST_URL
     ? process.env.SONAR_HOST_URL.replace(/\/$/, "")
-    : "https://sonarcloud.io";
+    : "https://internal-server.com";
 
   return {
     runnerOS: process.env.RUNNER_OS,
